@@ -114,13 +114,13 @@ extension PaddingExtension on BuildContext {
   EdgeInsets get paddingBottomHigh => EdgeInsets.only(bottom: highValue);
 }
 
-extension ThemeExtension on BuildContext {
-  /// Get the theme data
-  ThemeData get theme => Theme.of(this);
+extension KeyboardExtension on BuildContext {
+  /// Get the keyboard state of the device
+  bool get isKeyboardOpen => MediaQuery.of(this).viewInsets.bottom > 0;
 
-  /// Get the text theme
-  TextTheme get textTheme => Theme.of(this).textTheme;
+  /// Get the keyboard height
+  double get keyboardHeight => MediaQuery.of(this).viewInsets.bottom;
 
-  /// Get the brightness
-  Brightness get brightness => Theme.of(this).brightness;
+  /// Get the keyboard height when the keyboard is open
+  double get keyboardHeightWhenOpen => isKeyboardOpen ? keyboardHeight : 0;
 }

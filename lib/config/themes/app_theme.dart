@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:post_case_study/config/extensions/context_extensions.dart';
+import 'package:post_case_study/config/extensions/context_extension.dart';
 
 import '../items/app_colors.dart';
 
@@ -10,13 +10,7 @@ class AppTheme {
       brightness: Brightness.light,
       primaryColor: AppColors.kTextColor,
       scaffoldBackgroundColor: Colors.white,
-      appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        iconTheme: IconThemeData(color: Colors.black),
-        titleTextStyle: TextStyle(color: Colors.black),
-      ),
-      fontFamily: "Inter",
+      fontFamily: "Poppins",
       textTheme: TextTheme(
         displayLarge: TextStyle(
           fontWeight: FontWeight.w600,
