@@ -3,7 +3,7 @@ import 'package:post_case_study/config/constants/api_constants.dart';
 import '../models/post_model.dart';
 
 class PostService extends GetConnect {
-  static Future<List<PostModel>?> fetchPosts() async {
+ Future<List<PostModel>?> fetchPosts() async {
     final response = await GetConnect().get(ApiConstants.BASE_URL+ApiConstants.POSTS);
     if (response.status.hasError) {
       return Future.error(response.statusText!);
@@ -12,7 +12,7 @@ class PostService extends GetConnect {
     }
   }
 
-  static Future<PostModel?> fetchPostDetail(int id) async {
+ Future<PostModel?> fetchPostDetail(int id) async {
     final response = await GetConnect().get('${ApiConstants.BASE_URL}${ApiConstants.POSTS}/$id');
     if (response.status.hasError) {
       return Future.error(response.statusText!);
