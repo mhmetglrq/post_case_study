@@ -3,6 +3,10 @@ import '../models/post_model.dart';
 import '../services/post_service.dart';
 
 class PostDetailController extends GetxController {
+  final PostService postService;
+
+  PostDetailController({required this.postService});
+
   var isLoading = true.obs;
   PostModel? postDetail;
 
@@ -15,10 +19,10 @@ class PostDetailController extends GetxController {
     }
   }
 
-  void fetchPostDetail(int postId) async {
+  Future<void> fetchPostDetail(int postId) async {
     try {
       isLoading(true);
-      postDetail = await PostService.fetchPostDetail(postId);
+      postDetail = await postService.fetchPostDetail(postId);
     } finally {
       isLoading(false);
     }

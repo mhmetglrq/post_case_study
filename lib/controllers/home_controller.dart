@@ -3,6 +3,10 @@ import '../models/post_model.dart';
 import '../services/post_service.dart';
 
 class HomeController extends GetxController {
+  final PostService postService;
+
+  HomeController({required this.postService});
+
   var posts = <PostModel>[].obs;
   var filteredPosts = <PostModel>[].obs;
   var categories = <String>[].obs;
@@ -15,10 +19,10 @@ class HomeController extends GetxController {
     fetchPosts();
   }
 
-  void fetchPosts() async {
+  Future<void> fetchPosts() async {
     try {
       isLoading(true);
-      var fetchedPosts = await PostService.fetchPosts();
+      var fetchedPosts = await postService.fetchPosts();
       if (fetchedPosts != null) {
         posts.assignAll(fetchedPosts);
         categories.assignAll(
