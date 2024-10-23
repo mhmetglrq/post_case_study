@@ -36,6 +36,8 @@ class HomeView extends GetView<HomeController> {
     );
   }
 
+
+  /// Menü butonu ve profil resmi içeren AppBar bileşeni
   Widget _buildAppBar(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -59,6 +61,7 @@ class HomeView extends GetView<HomeController> {
     );
   }
 
+  /// Arama alanı bileşeni
   Widget _buildSearchField(BuildContext context) {
     return Padding(
       padding: context.paddingVerticalDefault,
@@ -86,6 +89,7 @@ class HomeView extends GetView<HomeController> {
     );
   }
 
+  /// Kategori listesi bileşeni
   Widget _buildCategoryList(BuildContext context) {
     return SizedBox(
       height: context.dynamicHeight(0.07),
@@ -119,6 +123,7 @@ class HomeView extends GetView<HomeController> {
     );
   }
 
+  /// Gönderi listesi bileşeni
   Widget _buildPostList() {
     return Expanded(
       child: ListView.builder(

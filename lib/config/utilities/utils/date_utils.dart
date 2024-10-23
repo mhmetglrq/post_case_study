@@ -2,6 +2,8 @@ import 'package:intl/intl.dart';
 
 class DateFormatUtils {
   DateFormatUtils._();
+
+  /// Verilen Tarhi formatını kontrol eder ve eğer uygunsa MMM dd formatına çevirir.
   static String formatDate(String? dateString) {
     if (dateString == null || dateString.isEmpty) {
       return "Unknown date";
@@ -14,6 +16,7 @@ class DateFormatUtils {
     }
   }
 
+  /// Verilen metni alır ve ortalama kelime sayısına göre okuma süresini hesaplar.
   static String calculateReadingTime(String text) {
     const int averageWordsPerMinute = 40;
     int wordCount = text.split(RegExp(r'\s+')).length;

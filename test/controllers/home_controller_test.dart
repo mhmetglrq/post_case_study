@@ -8,35 +8,35 @@ import 'package:post_case_study/services/post_service.dart';
 
 import 'home_controller_test.mocks.dart';
 
-// PostService için mock sınıfı oluşturmak üzere GenerateMocks anotasyonu
+/// PostService için mock sınıfı oluşturmak üzere GenerateMocks anotasyonu
 @GenerateMocks([PostService])
 void main() {
   late HomeController controller;
   late MockPostService mockPostService;
 
   setUp(() {
-    // Mock servisi başlat
+    /// Mock servisi başlat
     mockPostService = MockPostService();
-    // Controller'a bağımlılık olarak mock servisi geçiyoruz
+    /// Controller'a bağımlılık olarak mock servisi geçiyoruz
     controller = HomeController(postService: mockPostService);
   });
 
   group('HomeController Unit Tests', () {
     test('fetchPosts() should assign posts and categories', () async {
-      // Mock veri hazırlığı
+      /// Veri Hazırlığı
       final mockPosts = [
         PostModel(id: 1, title: 'Post 1', category: 'Tech'),
         PostModel(id: 2, title: 'Post 2', category: 'Health'),
       ];
 
-      // fetchPosts() metodu çağrıldığında mock verileri döndür
+      /// fetchPosts() metodu çağrıldığında mock verileri döndür
       when(mockPostService.fetchPosts()).thenAnswer((_) async => mockPosts);
 
-      // Controller'ın fetchPosts metodunu çağır ve tamamlanmasını bekle
+      /// Controller'ın fetchPosts metodunu çağır ve tamamlanmasını bekle
 
       await controller.fetchPosts();
 
-      // Test sonuçları
+      /// Test sonuçları
       expect(controller.posts.length, 2);
       expect(controller.posts[0].title, 'Post 1');
       expect(controller.categories.length, 2);
@@ -44,14 +44,14 @@ void main() {
     });
 
     test('filterPosts() should filter posts by category', () {
-      // Test verileri ekleyelim
+      /// Test verileri
       controller.posts.assignAll([
         PostModel(id: 1, title: 'Post 1', category: 'Tech'),
         PostModel(id: 2, title: 'Post 2', category: 'Health'),
         PostModel(id: 3, title: 'Post 3', category: 'Tech'),
       ]);
 
-      // "Tech" kategorisiyle filtreleme yapıyoruz
+      /// "Tech" kategorisiyle filtreleme işlemi
       controller.filterPosts('Tech');
 
       // Test sonuçları
@@ -61,16 +61,16 @@ void main() {
     });
 
     test('searchPosts() should filter posts by title', () {
-      // Test verileri ekleyelim
+      /// Test verileri
       controller.posts.assignAll([
         PostModel(id: 1, title: 'Flutter Tips', category: 'Tech'),
         PostModel(id: 2, title: 'Health Guide', category: 'Health'),
       ]);
 
-      // "Flutter" kelimesine göre arama yapıyoruz
+      /// "Flutter" kelimesine göre filtreleme işlemi
       controller.searchPosts('Flutter');
 
-      // Test sonuçları
+      /// Test sonuçları
       expect(controller.filteredPosts.length, 1);
       expect(controller.filteredPosts[0].title, 'Flutter Tips');
     });

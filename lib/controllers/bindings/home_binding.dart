@@ -5,8 +5,9 @@ import '../home_controller.dart';
 class HomeBinding extends Bindings {
   @override
   void dependencies() {
-    // Öncelikle PostService'in bağımlılığını ekliyoruz
+    /// Get.lazyPut() ile PostService sınıfı her çağrıldığında yeni bir örnek oluşturulur.
     Get.lazyPut<PostService>(() => PostService());
+    /// HomeController sınıfı çağrıldığında PostService sınıfı da çağrılır.
     Get.lazyPut<HomeController>(() => HomeController(postService: Get.find<PostService>()));
   }
 }

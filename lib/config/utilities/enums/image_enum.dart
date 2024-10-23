@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+/// Resim ve Svg dosyalarının enum olarak tutulduğu sınıf
 enum ImageEnum {
   menu('menu'),
   search('search');

@@ -82,6 +82,7 @@ class PostDetailView extends GetView<PostDetailController> {
     );
   }
 
+  /// Gönderi resmi ve kategori bilgisini içeren bileşen 
   Widget _buildImageSection(BuildContext context, PostModel post) {
     return Stack(
       alignment: Alignment.bottomCenter,
@@ -116,6 +117,7 @@ class PostDetailView extends GetView<PostDetailController> {
     );
   }
 
+  /// Gönderi içeriğini ve tarih bilgisini içeren bileşen
   Widget _buildContentSection(BuildContext context, PostModel post) {
     return Padding(
       padding: context.paddingAllDefault,
@@ -147,6 +149,7 @@ class PostDetailView extends GetView<PostDetailController> {
     );
   }
 
+  /// Gönderi tarihini ve okuma süresini içeren bileşen
   Widget _buildDateRow(BuildContext context, PostModel post) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,

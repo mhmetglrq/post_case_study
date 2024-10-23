@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+/// Uygulama renklerini içeren sınıf.
 class AppColors {
   static const Color kPrimaryColor = Color(0xFF00091F);
   static const Color kTitleColor = Color(0x8000091F);
