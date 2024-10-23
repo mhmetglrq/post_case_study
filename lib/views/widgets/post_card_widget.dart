@@ -38,6 +38,7 @@ class PostCardWidget extends StatelessWidget {
     );
   }
 
+  /// Küçük resim bileşeni
   Widget _buildThumbnail(BuildContext context) {
     return CachedNetworkImage(
       imageUrl: post.thumbnail ?? "",
@@ -50,6 +51,7 @@ class PostCardWidget extends StatelessWidget {
     );
   }
 
+  /// Başlık bileşeni
   Widget _buildTitle(BuildContext context) {
     return Text(
       post.title ?? 'No available title',
@@ -59,6 +61,7 @@ class PostCardWidget extends StatelessWidget {
     );
   }
 
+  /// Tarih ve okuma süresi bileşeni
   Widget _buildDateRow(BuildContext context, PostModel post) {
     return Row(
       children: [

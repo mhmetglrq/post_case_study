@@ -3,6 +3,8 @@ import 'package:post_case_study/config/extensions/context_extension.dart';
 
 import '../items/app_colors.dart';
 
+/// Uygulama teması
+/// Uygulama fontunun ayarları, renklerin ayarları ve tema modu ayarları burada yapılır
 class AppTheme {
   const AppTheme._();
   static ThemeData lightTheme(BuildContext context) {
@@ -11,6 +13,7 @@ class AppTheme {
       primaryColor: AppColors.kTextColor,
       scaffoldBackgroundColor: Colors.white,
       fontFamily: "Poppins",
+      /// Uygulama genelinde kullanılacak text stilleri
       textTheme: TextTheme(
         displayLarge: TextStyle(
           fontWeight: FontWeight.w600,
